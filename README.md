@@ -41,17 +41,19 @@ Instead we are using the following:
 - PDM project (build/dependency management tool)
 - pyproject.toml (project metadata description)
 
+### PDM Project
+
 For further details on using PDM for managing dependencies and builds, see:
 
-- [PDM project homepage](https://pdm-project.org/en/latest/)
-- [PDM project on GitHub](https://github.com/pdm-project/pdm)
-- [PDM project Github action](https://github.com/pdm-project/setup-pdm)
+- [PDM Project](https://pdm-project.org/en/latest/)
+- [PDM Project on GitHub](https://github.com/pdm-project/pdm)
+- [PDM/Setup Github Action](https://github.com/pdm-project/setup-pdm)
 
-For further reading on pyproject.toml files, see:
+### Information on pyproject.toml
 
-- [Writing pyproject.toml](https://packaging.python.org/en/latest/guides/writing-pyproject-toml/)
-- [Specification](https://packaging.python.org/en/latest/specifications/pyproject-toml/)
-- [Cheat sheet](https://betterprogramming.pub/a-pyproject-toml-developers-cheat-sheet-5782801fb3ed)
+- [Guide to writing pyproject.toml](https://packaging.python.org/en/latest/guides/writing-pyproject-toml/)
+- [File Specification](https://packaging.python.org/en/latest/specifications/pyproject-toml/)
+- [Syntax/Cheat Sheet](https://betterprogramming.pub/a-pyproject-toml-developers-cheat-sheet-5782801fb3ed)
 
 <!--
 [comment]: # SPDX-License-Identifier: Apache-2.0
