@@ -182,7 +182,7 @@ jobs:
           }
 
           pdm_migrate_config() {
-            echo "Installing PDM commmand..."
+            echo "Installing PDM command..."
             if !(pip install pdm > /dev/null 2>&1); then
               echo "PDM installation failed"; exit 1
             fi
@@ -370,8 +370,8 @@ jobs:
             git push --set-upstream origin "$AUTOMATION_BRANCH"
             # Create PR request
             gh pr create \
-             --title "Chore: Pull DevOps tooling from upstream repository" \
-            --body 'Automated by a GitHub workflow: bootstrap.yaml'
+              --title "Chore: Pull DevOps tooling from upstream repository [skip ci]" \
+              --body 'Automated by a GitHub workflow: tooling.yaml [skip ci]'
           fi
           # echo "Unstashing unstaged changes, if any exist"
           # git stash pop -q || :
