@@ -177,6 +177,34 @@ jobs:
             fi
           }
 
+          change_dir_error() {
+            echo "Could not change directory"; exit 1
+          }
+
+          pdm_migrate_config() {
+            echo "Installing PDM commmand..."
+            if !(pip install pdm > /dev/null 2>&1); then
+              echo "PDM installation failed"; exit 1
+            fi
+            echo -n "Validating PDM version: "
+            pdm self update
+            #echo "Installing Setuptools... (required for metadata migration)"
+            #if !(pip install setuptools > /dev/null 2>&1); then
+            #  echo "Setuptools installation failed"; exit 1
+            #fi
+            if [ "$DEBUG" = "true" ]; then
+              echo "Display PDM/project environment:"
+              pdm info --env
+            fi
+            cd "$REPO_NAME" || change_dir_error
+            pdm import setup.cfg
+            cd - >/dev/null || change_dir_error
+            echo "Relocating Pyscaffold output to current folder"
+            mv "$REPO_NAME"/{.[!.],}* .
+            rmdir "$REPO_NAME"
+            rm -Rf README.md setup.cfg setup.py LICENSE.txt test.sh pyscaffold
+          }
+
           bootstrap_new_repo() {
             echo "Bootstrapping new repository"
             echo "Installing pyscaffold..."
@@ -185,6 +213,11 @@ jobs:
             fi
             # Search and replace pyscaffold configuration file
             sed -i "s/REPO_PLACEHOLDER/$REPO_NAME/g" pyscaffold/os-climate.cfg
+            if [ -d "$REPO_NAME" ]; then
+              echo "Removing previous pyscaffold run from local disk"
+              rm -Rf "$REPO_NAME"
+            fi
+            echo -n "Creating new project skeleton with Pyscaffold: "
             putup --force "$REPO_NAME" --config pyscaffold/os-climate.cfg
           }
 
@@ -235,10 +268,8 @@ jobs:
           # Install and run Pyscaffold
           if [ ! -d ./src ]; then
             bootstrap_new_repo
+            pdm_migrate_config
           fi
-
-          ### Temporary early exit - do NOT install/update DevOps tooling
-          exit 0
 
 
           # Process upstream DevOps repository content and update
