@@ -102,8 +102,12 @@ jobs:
             # SHA_SRC=$(sha1sum "$DEVOPS_DIR/$1" | awk '{print $1}')
             # SHA_DST=$(sha1sum "$1" 2>/dev/null | awk '{print $1}' || :)
             # if [ "$SHA_SRC" != "$SHA_DST" ]; then
-            if ! (cmp "$DEVOPS_DIR/$1" "$1"); then
-              echo "Copying: $1"
+            if [ ! -f "$1" ]; then
+              echo "Adding new file: $1"
+              cp "$DEVOPS_DIR/$1" "$1"
+              git add "$1"
+            if ! (cmp "$DEVOPS_DIR/$1" "$1" > /dev/null 2>&1); then
+              echo "Updating existing file: $1"
               cp "$DEVOPS_DIR/$1" "$1"
               git add "$1"
             fi
@@ -187,6 +191,8 @@ jobs:
           }
 
           pdm_migrate_config() {
+            python -m venv /tmp/python-venv
+            source /tmp/python-venv/bin/activate
             cd "$REPO_NAME" || change_dir_error
             echo "Installing PDM command..."
             if !(pip install pdm setuptools > /dev/null 2>&1); then
@@ -194,6 +200,7 @@ jobs:
             fi
             echo -n "Validating PDM version: "
             pdm self update
+            # pdm config python.use_venv false
             if [ "$DEBUG" = "true" ]; then
               echo "Display PDM/project environment:"
               pdm info --env
