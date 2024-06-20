@@ -62,10 +62,14 @@ upstream DevOps tooling and GitHub workflows can be imported using the appropria
 workflow. This can be run from the GitHub portal user interface, or from a shell
 using the provided thin wrapper script.
 
-__Note:__ *Before running the workflow a member of the OS-Climate organisation with GitHub
-administrator privileges must extend the ACTIONS_WORKFLOW credential to the relevant
-repository/repositories. This needs the ability to raise a PR, which the standard token
-credentials do not allow/permit.*
+__Note:__ *Before running the workflow, a member of the OS-Climate organisation
+with GitHub administrator privileges must extend the ACTIONS_WORKFLOW credential
+to the relevant repository/repositories. The automation needs the ability to
+raise a PR, which the standard token/credential does not allow/permit.*
+
+Go here to update the repository settings to apply the relevant credential:
+
+[ACTIONS_WORKFLOW](https://github.com/organizations/os-climate/settings/secrets/actions/ACTIONS_WORKFLOW)
 
 <!--
 [comment]: # SPDX-License-Identifier: Apache-2.0
