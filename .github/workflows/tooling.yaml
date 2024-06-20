@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: Apache-2.0
 # Copyright 2024 The Linux Foundation <mwatkins@linuxfoundation.org>
 
-name: "♻️ Install/update shared DevOps tooling"
+name: "♻️ Update common DevOps tooling"
 
 # yamllint disable-line rule:truthy
 on:
@@ -106,7 +106,7 @@ jobs:
               echo "Adding new file: $1"
               cp "$DEVOPS_DIR/$1" "$1"
               git add "$1"
-            if ! (cmp "$DEVOPS_DIR/$1" "$1" > /dev/null 2>&1); then
+            elif !(cmp "$DEVOPS_DIR/$1" "$1" > /dev/null 2>&1); then
               echo "Updating existing file: $1"
               cp "$DEVOPS_DIR/$1" "$1"
               git add "$1"
@@ -200,7 +200,6 @@ jobs:
             fi
             echo -n "Validating PDM version: "
             pdm self update
-            # pdm config python.use_venv false
             if [ "$DEBUG" = "true" ]; then
               echo "Display PDM/project environment:"
               pdm info --env
@@ -237,7 +236,7 @@ jobs:
           CURRENT_DIR=$(pwd)
           if [ "$REPO_DIR" != "$CURRENT_DIR" ]; then
               echo "Changing directory to: $REPO_DIR"
-              if ! (cd "$REPO_DIR"); then
+              if !(cd "$REPO_DIR"); then
                   echo "Error: unable to change directory"; exit 1
               fi
           fi
