@@ -106,7 +106,7 @@ jobs:
               echo "Adding new file: $1"
               cp "$DEVOPS_DIR/$1" "$1"
               git add "$1"
-            elif !(cmp "$DEVOPS_DIR/$1" "$1" > /dev/null 2>&1); then
+            elif ! (cmp "$DEVOPS_DIR/$1" "$1" > /dev/null 2>&1); then
               echo "Updating existing file: $1"
               cp "$DEVOPS_DIR/$1" "$1"
               git add "$1"
@@ -195,7 +195,7 @@ jobs:
             source /tmp/python-venv/bin/activate
             cd "$REPO_NAME" || change_dir_error
             echo "Installing PDM command..."
-            if !(pip install pdm setuptools > /dev/null 2>&1); then
+            if ! (pip install pdm setuptools > /dev/null 2>&1); then
               echo "PDM installation failed"; exit 1
             fi
             echo -n "Validating PDM version: "
@@ -215,7 +215,7 @@ jobs:
           bootstrap_new_repo() {
             echo "Bootstrapping new repository"
             echo "Installing pyscaffold..."
-            if !(pip install pyscaffold > /dev/null 2>&1); then
+            if ! (pip install pyscaffold > /dev/null 2>&1); then
               echo "PyScaffold installation failed"; exit 1
             fi
             # Search and replace pyscaffold configuration file
@@ -236,7 +236,7 @@ jobs:
           CURRENT_DIR=$(pwd)
           if [ "$REPO_DIR" != "$CURRENT_DIR" ]; then
               echo "Changing directory to: $REPO_DIR"
-              if !(cd "$REPO_DIR"); then
+              if ! (cd "$REPO_DIR"); then
                   echo "Error: unable to change directory"; exit 1
               fi
           fi
@@ -274,6 +274,9 @@ jobs:
           if [ ! -d ./src ]; then
             bootstrap_new_repo
             pdm_migrate_config
+            # Supplmental updates to address pydocstyle checks and Pyscaffold same content
+            cp content/__init__.py "src/$REPO_NAME/__init__.py"
+            cp content/skeleton.py "src/$REPO_NAME/skeleton.py"
           fi
 
 

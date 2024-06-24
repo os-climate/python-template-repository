@@ -55,17 +55,17 @@ For further details on using PDM for managing dependencies and builds, see:
 - [File Specification](https://packaging.python.org/en/latest/specifications/pyproject-toml/)
 - [Syntax/Cheat Sheet](https://betterprogramming.pub/a-pyproject-toml-developers-cheat-sheet-5782801fb3ed)
 
-## New Repositories
+##  New Repositories
 
 We can/should create new Python repositories using this template. Afterwards, the
 upstream DevOps tooling and GitHub workflows can be imported using the appropriate
 workflow. This can be run from the GitHub portal user interface, or from a shell
 using the provided thin wrapper script.
 
-__Note:__ *Before running the workflow, a member of the OS-Climate organisation
+**Note:** _Before running the workflow, a member of the OS-Climate organisation
 with GitHub administrator privileges must extend the ACTIONS_WORKFLOW credential
 to the relevant repository/repositories. The automation needs the ability to
-raise a PR, which the standard token/credential does not allow/permit.*
+raise a PR, which the standard token/credential does not allow/permit._
 
 Go here to update the repository settings to apply the relevant credential:
 
