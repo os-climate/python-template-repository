@@ -276,8 +276,8 @@ jobs:
             pdm_migrate_config
             # Supplmental updates to address pydocstyle checks and Pyscaffold same content
             PYTHON_SRC_DIR=$(echo "$REPO_NAME" | tr '-' '_')
-            cp content/__init__.py "$REPO_NAME/src/$PYTHON_SRC_DIR/__init__.py"
-            cp content/skeleton.py "$REPO_NAME/src/$PYTHON_SRC_DIR/skeleton.py"
+            cp content/__init__.py "src/$PYTHON_SRC_DIR/__init__.py"
+            cp content/skeleton.py "src/$PYTHON_SRC_DIR/skeleton.py"
           fi
 
 
