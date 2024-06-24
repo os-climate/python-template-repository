@@ -275,8 +275,9 @@ jobs:
             bootstrap_new_repo
             pdm_migrate_config
             # Supplmental updates to address pydocstyle checks and Pyscaffold same content
-            cp content/__init__.py "src/$REPO_NAME/__init__.py"
-            cp content/skeleton.py "src/$REPO_NAME/skeleton.py"
+            PYTHON_SRC_DIR=$(echo "$REPO_NAME" | tr '-' '_')
+            cp content/__init__.py "$REPO_NAME/src/$PYTHON_SRC_DIR/__init__.py"
+            cp content/skeleton.py "$REPO_NAME/src/$PYTHON_SRC_DIR/skeleton.py"
           fi
 
 
