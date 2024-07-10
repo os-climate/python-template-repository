@@ -1,3 +1,7 @@
+<!--
+SPDX-License-Identifier: Apache-2.0
+SPDX-FileCopyrightText: Copyright 2024 The Linux Foundation <https://linuxfoundation.org>
+-->
 <!-- markdownlint-disable -->
 <!-- prettier-ignore-start -->
 > [!IMPORTANT]
@@ -105,8 +109,3 @@ raise a PR, which the standard token/credential does not allow/permit._
 Go here to update the repository settings to apply the relevant credential:
 
 [ACTIONS_WORKFLOW](https://github.com/organizations/os-climate/settings/secrets/actions/ACTIONS_WORKFLOW)
-
-<!--
-[comment]: # SPDX-License-Identifier: Apache-2.0
-[comment]: # Copyright 2024 The Linux Foundation <mwatkins@linuxfoundation.org>
--->
