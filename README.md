@@ -1,6 +1,13 @@
-
+<!--
+SPDX-License-Identifier: Apache-2.0
+SPDX-FileCopyrightText: Copyright 2024 The Linux Foundation <https://linuxfoundation.org>
+-->
+<!-- markdownlint-disable -->
+<!-- prettier-ignore-start -->
 > [!IMPORTANT]
 > On June 26 2024, Linux Foundation announced the merger of its financial services umbrella, the Fintech Open Source Foundation ([FINOS](https://finos.org)), with OS-Climate, an open source community dedicated to building data technologies, modeling, and analytic tools that will drive global capital flows into climate change mitigation and resilience; OS-Climate projects are in the process of transitioning to the [FINOS governance framework](https://community.finos.org/docs/governance); read more on [finos.org/press/finos-join-forces-os-open-source-climate-sustainability-esg](https://finos.org/press/finos-join-forces-os-open-source-climate-sustainability-esg)
+<!-- prettier-ignore-end -->
+<!-- markdownlint-enable -->
 
 # Python Template Repository
 
@@ -14,26 +21,25 @@ To create a new Python project, visit:
 
 Choose repository template:
 
-	os-climate/python-template-repository
+ os-climate/python-template-repository
 
 Owner:
 
-	os-climate
+ os-climate
 
 Repository name:
 
-	[osc-your-new-repository]
+ [osc-your-new-repository]
 
 Grant the following GitHub App access to the new repository:
 
-	pre-commit ci
+ pre-commit ci
 
 Afterwards, you will need to ask an OS-Climate DevOps engineer (or GitHub organisation
 administrator) to add the repository to a credential permitting Github Actions workflows
 to modify action files:
 
 [https://github.com/organizations/os-climate/settings/secrets/actions/ACTIONS_WORKFLOW](https://github.com/organizations/os-climate/settings/secrets/actions/ACTIONS_WORKFLOW)
-
 
 ## Bootstrap Scripts, Templating and Skeleton Files
 
@@ -103,8 +109,3 @@ raise a PR, which the standard token/credential does not allow/permit._
 Go here to update the repository settings to apply the relevant credential:
 
 [ACTIONS_WORKFLOW](https://github.com/organizations/os-climate/settings/secrets/actions/ACTIONS_WORKFLOW)
-
-<!--
-[comment]: # SPDX-License-Identifier: Apache-2.0
-[comment]: # Copyright 2024 The Linux Foundation <mwatkins@linuxfoundation.org>
--->
