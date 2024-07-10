@@ -49,12 +49,12 @@ repos:
       - id: yamllint
 
   - repo: https://github.com/fsfe/reuse-tool
-    rev: v3.0.2
+    rev: v4.0.3
     hooks:
       - id: reuse
 
   # Check for misspellings in documentation files
   - repo: https://github.com/codespell-project/codespell
-    rev: v2.2.2
+    rev: v2.3.0
     hooks:
       - id: codespell
