@@ -17,26 +17,25 @@ To create a new Python project, visit:
 
 Choose repository template:
 
-	os-climate/python-template-repository
+ os-climate/python-template-repository
 
 Owner:
 
-	os-climate
+ os-climate
 
 Repository name:
 
-	[osc-your-new-repository]
+ [osc-your-new-repository]
 
 Grant the following GitHub App access to the new repository:
 
-	pre-commit ci
+ pre-commit ci
 
 Afterwards, you will need to ask an OS-Climate DevOps engineer (or GitHub organisation
 administrator) to add the repository to a credential permitting Github Actions workflows
 to modify action files:
 
 [https://github.com/organizations/os-climate/settings/secrets/actions/ACTIONS_WORKFLOW](https://github.com/organizations/os-climate/settings/secrets/actions/ACTIONS_WORKFLOW)
-
 
 ## Bootstrap Scripts, Templating and Skeleton Files
 
